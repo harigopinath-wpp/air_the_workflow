@@ -1,0 +1,12 @@
+# The main pipeline for lakehouse
+resources:
+  pipelines:
+    lakehouse_pipeline:
+      name: lakehouse_pipeline
+      target: lakehouse_${bundle.environment}
+      libraries:
+        - notebook:
+            path: ../src/dlt_pipeline.ipynb
+
+      configuration:
+        bundle.sourcePath: /Workspace/${workspace.file_path}/src
